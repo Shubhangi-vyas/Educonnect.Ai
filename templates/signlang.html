@@ -49,7 +49,7 @@
     <div class="container-fluid sticky-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark p-0">
-                <a href="/" class="navbar-brand">
+                <a href="/index" class="navbar-brand">
                     <h1 class="text-white">EduConnect<span class="text-dark">.</span>AI</h1>
                 </a>
                 <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
@@ -58,7 +58,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="/" class="nav-item nav-link active">Home</a>
+                        <a href="/index" class="nav-item nav-link active">Home</a>
                         <a href="/about" class="nav-item nav-link">About</a>
                         <!-- <a href="service.html" class="nav-item nav-link">Services</a>
                         <a href="project.html" class="nav-item nav-link">Projects</a> -->
@@ -73,9 +73,20 @@
                             </div>
                         </div>
                         <a href="/contact" class="nav-item nav-link">Contact</a>
+                        <div class="nav-item dropdown username" >
+                            {% if session['username'] %}
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-user"></i>
+                                Welcome, {{ session['username'] }}
+                            </a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="/logout" class="dropdown-item">Logout</a>
+                            </div>
+                            {% else %}
+                            <a href="/login" class="nav-link">Please log in</a>
+                            {% endif %}
+                        </div>
                     </div>
-                    <butaton type="button" class="btn text-white p-0 d-none d-lg-block" data-bs-toggle="modal"
-                        data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+                   
                 </div>
             </nav>
         </div>
@@ -98,9 +109,8 @@
                     </nav> -->
                 </div>
                 <div class="col-lg-6 align-self-end text-center text-lg-end">
-                    <!-- <img class="img-fluid" src="{{ url_for('static', filename='img/hero-img.png') }}" alt="" style="max-height: 300px;"> -->
-                    <!-- <img class="img-fluid" src="{{ url_for('static', filename='img/gif.gif') }}" alt=""> -->
-                    <img class="img-fluid" src="{{ url_for('static', filename='img/d.png') }}" alt="" style="max-height: 500px;" width="90%"> 
+                
+                    <img class="img-fluid" src="{{ url_for('static', filename='img/d.png') }}" alt="" width="90%"> 
                 </div>
             </div>
         </div>
@@ -137,34 +147,9 @@
                     <div class="btn btn-sm border rounded-pill text-white px-3 mb-3">About ASL</div>
                     <h1 class="text-white mb-4">Bridging Communication with Sign Language to Text</h1>
                     <p class="text-light mb-4">Our Sign Language to Text Conversion tool bridges communication gaps by translating American Sign Language (ASL) gestures into written text in real-time. This innovative feature empowers individuals who use ASL to communicate more effectively in educational and professional settings. By converting gestures into readable text, our tool ensures that Deaf and hard-of-hearing individuals have equal access to information and can participate fully in conversations and learning environments. This project is a step forward in making communication more inclusive and accessible for everyone.</p>
-                    <!-- <div class="d-flex align-items-center text-white mb-3">
-                        <div class="btn-sm-square bg-white text-primary rounded-circle me-3">
-                            <i class="fa fa-check"></i>
-                        </div>
-                        <span>Diam dolor diam ipsum et tempor sit</span>
-                    </div>
-                    <div class="d-flex align-items-center text-white mb-3">
-                        <div class="btn-sm-square bg-white text-primary rounded-circle me-3">
-                            <i class="fa fa-check"></i>
-                        </div>
-                        <span>Diam dolor diam ipsum et tempor sit</span>
-                    </div>
-                    <div class="d-flex align-items-center text-white mb-3">
-                        <div class="btn-sm-square bg-white text-primary rounded-circle me-3">
-                            <i class="fa fa-check"></i>
-                        </div>
-                        <span>Diam dolor diam ipsum et tempor sit</span>
-                    </div> -->
+                    
                     <div class="row g-4 pt-3">
-                        <!-- <div class="col-sm-6">
-                            <div class="d-flex rounded p-3" style="background: rgba(256, 256, 256, 0.1);">
-                                <i class="fa fa-home fa-3x text-white"></i>
-                                <div class="ms-3">
-                                    <h2 class="text-white mb-0" data-toggle="counter-up">9999</h2>
-                                    <p class="text-white mb-0">Happy Clients</p>
-                                </div>
-                            </div>
-                        </div> -->
+                    
                         <div class="col-sm-6">
                             <div class="d-flex rounded p-3">
                             </div>
@@ -172,7 +157,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 align-self-end text-center text-md-end wow fadeIn" data-wow-delay="0.5s">
-                    <!-- <img class="img-fluid" src="{{ url_for('static', filename='img/gif.gif') }}" alt="" style="width: 100%; max-width: 500px;"> -->
+                   
                     <img class="img-fluid" src="{{ url_for('static', filename='gif/vedio3.gif') }}" alt="" style="width: 100%; max-width: 700px; height: 500px; object-fit: cover;">
 
                 </div>
@@ -196,12 +181,12 @@
                 </div>
                 <div class="col-md-7 py-5 newsletter-text wow fadeIn" data-wow-delay="0.5s">
                     <div class="btn btn-lg border rounded-pill text-white px-3 mb-3">Tips for better predictions</div>
-                    <!-- <h1 class="text-white mb-4">Let's subscribe the newsletter</h1> -->
+                    
                     <div class="d-flex align-items-center text-white mb-3">
                         <div class="btn-sm-square bg-white text-primary rounded-circle me-3">
                             <i class="fa fa-check"></i>
                         </div>
-                        <span>Make sure you have a plan background.</span>
+                        <span>Make sure you have a plain background.</span>
                     </div>
                     <div class="d-flex align-items-center text-white mb-3">
                         <div class="btn-sm-square bg-white text-primary rounded-circle me-3">
@@ -219,11 +204,9 @@
                     
                             <a href="/outputsign" class="btn btn-outline-dark py-sm-3 px-sm-5 rounded-pill animated slideInRight" style="font-size: 1rem;"> START <i class="fas fa-arrow-right" style="font-size: 1rem;"></i>
                             </a>
-                            
-                        <!-- <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"> -->
-                                <!-- <i class="fa fa-paper-plane text-primary fs-4"></i></button> -->
+                   
                     </div>
-                    <!-- <small class="text-white-50">Diam sed sed dolor stet amet eirmod</small> -->
+             
                 </div>
             </div>
         </div>
@@ -239,7 +222,8 @@
                 <a href="index.html" class="d-inline-block mb-3">
                     <h1 class="text-white">EduConnect<span class="text-primary">.</span>AI</h1>
                 </a>
-                <p class="mb-0">AI platform is designed to help all students, including those with disabilities, by automating tasks and making education more accessible.</p>
+                <p class="mb-0">AI platform is designed to help all students, including specially abled persons, by
+                    automating tasks and making education more accessible.</p>
             </div>
             <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
                 <h5 class="text-white mb-4">Get In Touch</h5>
@@ -252,16 +236,17 @@
             </div>
             <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
                 <h5 class="text-white mb-4">Popular Link</h5>
-                <a class="btn btn-link" href="">About Us</a>
-                <a class="btn btn-link" href="">Contact Us</a>
-                <a class="btn btn-link" href="">Services</a>
+                <a class="btn btn-link" href="/index">Home</a>
+                <a class="btn btn-link" href="/about">About Us</a>
+                <a class="btn btn-link" href="/contact">Contact Us</a>
+         
             </div>
             <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
                 <h5 class="text-white mb-4">Our Services</h5>
-                <a class="btn btn-link" href="">Sign Language to Text Conversion</a>
-                <a class="btn btn-link" href="">Handwritten Equation Solver</a>
-                <a class="btn btn-link" href="">Text Summarization</a>
-                <a class="btn btn-link" href="">Text Extraction</a>
+                <a class="btn btn-link" href="/signlang">Sign Language to Text Conversion</a>
+                <a class="btn btn-link" href="/equation">Handwritten Equation Solver</a>
+                <a class="btn btn-link" href="/textext">Text Summarization</a>
+                <a class="btn btn-link" href="/textsum">Text Extraction</a>
             </div>
         </div>
     </div>
@@ -270,8 +255,6 @@
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                     &copy; <a class="border-bottom" href="#">EduConnect.AI</a>, All Right Reserved.
-
-                   
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="footer-menu">
