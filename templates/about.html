@@ -5,7 +5,7 @@
 
 
     <meta charset="utf-8">
-    <title>AI.Tech - Artificial Intelligence HTML Template</title>
+    <title>Educonnect.AI</title>
 
     <!-- Favicon -->
     <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="icon">
@@ -50,7 +50,7 @@
     <div class="container-fluid sticky-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark p-0">
-                <a href="/" class="navbar-brand">
+                <a href="/index" class="navbar-brand">
                     <h1 class="text-white">EduConnect<span class="text-dark">.</span>AI</h1>
                 </a>
                 <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
@@ -59,7 +59,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="/" class="nav-item nav-link active">Home</a>
+                        <a href="/index" class="nav-item nav-link active">Home</a>
                         <a href="/about" class="nav-item nav-link">About</a>
                         <!-- <a href="service.html" class="nav-item nav-link">Services</a>
                         <a href="project.html" class="nav-item nav-link">Projects</a> -->
@@ -74,9 +74,20 @@
                             </div>
                         </div>
                         <a href="/contact" class="nav-item nav-link">Contact</a>
+                        <div class="nav-item dropdown username" >
+                            {% if session['username'] %}
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-user"></i>
+                                Welcome, {{ session['username'] }}
+                            </a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="/logout" class="dropdown-item">Logout</a>
+                            </div>
+                            {% else %}
+                            <a href="/login" class="nav-link">Please log in</a>
+                            {% endif %}
+                        </div>
                     </div>
-                    <butaton type="button" class="btn text-white p-0 d-none d-lg-block" data-bs-toggle="modal"
-                        data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+                  
                 </div>
             </nav>
         </div>
@@ -142,7 +153,7 @@
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <div class="btn btn-sm border rounded-pill text-primary px-3 mb-3">About Us</div>
                     <h1 class="mb-4">Making Learning Easier for Everyone with AI</h1>
-                    <p class="mb-4">Our AI platform is designed to help all students, including those with disabilities,
+                    <p class="mb-4">Our AI platform is designed to help all students, including those with specially abled persons,
                         by automating tasks and making education more accessible. We simplify learning, so students can
                         spend more time focusing on their studies and less on the busywork.</p>
                     <p class="mb-4">Our goal is to empower every learner, making education seamless and inclusive for
@@ -153,7 +164,7 @@
                             <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i> Inclusive and Accessible</h6>
                         </div>
                         <div class="col-sm-6">
-                            <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>User-friendly</h6> 
+                            <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>User-friendly</h6>
                             <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Innovative Solutions</h6>
                         </div>
                     </div>
@@ -201,7 +212,7 @@
                         <div class="btn-sm-square bg-white text-primary rounded-circle me-3">
                             <i class="fa fa-check"></i>
                         </div>
-                        <span> <b>Individuals with Disabilities</b> :-Access and communicate with inclusive AI
+                        <span> <b>Individuals with specially abled persons</b> :-Access and communicate with inclusive AI
                             tools.</span>
                     </div>
                     <!-- <div class="row g-4 pt-3">
@@ -255,15 +266,17 @@
                                 <div class="col-12 wow fadeIn" data-wow-delay="0.1s">
                                     <div class="team-item bg-white text-center rounded p-4 pt-0">
                                         <img class="img-fluid rounded-circle p-4"
-                                            src="{{ url_for('static', filename='img/team-1.jpg') }}" alt="">
+                                            src="{{ url_for('static', filename='img/Sv1.png') }}" alt="">
 
                                         <h5 class="mb-0">Shubhangi vyas</h5>
                                         <small>Team Leader</small>
                                         <div class="d-flex justify-content-center mt-3">
-                                            <a class="btn btn-square btn-primary m-1" href=""><i
+                                            <a class="btn btn-square btn-primary m-1"
+                                                href="https://github.com/Shubhangi-vyas" target="_blank"><i
                                                     class="fab fa-github"></i></a>
 
-                                            <a class="btn btn-square btn-primary m-1" href=""><i
+                                            <a class="btn btn-square btn-primary m-1"
+                                                href="http://www.linkedin.com/in/shubhangivyas" target="_blank"><i
                                                     class="fab fa-linkedin-in"></i></a>
                                         </div>
                                     </div>
@@ -271,15 +284,17 @@
                                 <div class="col-12 wow fadeIn" data-wow-delay="0.5s">
                                     <div class="team-item bg-white text-center rounded p-4 pt-0">
                                         <img class="img-fluid rounded-circle p-4"
-                                            src="{{ url_for('static', filename='img/team-1.jpg') }}" alt="">
+                                            src="{{ url_for('static', filename='img/suvrat.jpg') }}" alt="">
 
                                         <h5 class="mb-0">Suvrat verma</h5>
                                         <small>Team Memeber</small>
                                         <div class="d-flex justify-content-center mt-3">
-                                            <a class="btn btn-square btn-primary m-1" href=""><i
+                                            <a class="btn btn-square btn-primary m-1"
+                                                href="https://github.com/iamsuvratverma" target="_blank"><i
                                                     class="fab fa-github"></i></a>
 
-                                            <a class="btn btn-square btn-primary m-1" href=""><i
+                                            <a class="btn btn-square btn-primary m-1"
+                                                href="https://www.linkedin.com/in/suvratverma/" target="_blank"><i
                                                     class="fab fa-linkedin-in"></i></a>
                                         </div>
                                     </div>
@@ -291,16 +306,18 @@
                                 <div class="col-12 wow fadeIn" data-wow-delay="0.3s">
                                     <div class="team-item bg-white text-center rounded margin pt-4">
                                         <img class="img-fluid rounded-circle p-4"
-                                            src="{{ url_for('static', filename='img/team-3.jpg') }}" alt="">
+                                            src="{{ url_for('static', filename='img/him.jpg') }}" width="300px" alt="">
 
                                         <h5 class="mb-0">Himanshu singh patel </h5>
                                         <small>Team Member</small>
                                         <div class="d-flex justify-content-center mt-3 mb-3">
-                                            <a class="btn btn-square btn-primary m-1" href=""><i
+                                            <a class="btn btn-square btn-primary m-1"
+                                                href="https://github.com/Iamhimanshusinghpatel" target="_blank"><i
                                                     class="fab fa-github"></i></a>
 
-                                            <a class="btn btn-square btn-primary m-1" href=""><i
-                                                    class="fab fa-linkedin-in"></i></a>
+                                            <a class="btn btn-square btn-primary m-1"
+                                                href="https://www.linkedin.com/in/himanshu-singh-patel-9878a5284/"
+                                                target="_blank"><i class="fab fa-linkedin-in"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -323,7 +340,7 @@
                     <a href="index.html" class="d-inline-block mb-3">
                         <h1 class="text-white">EduConnect<span class="text-primary">.</span>AI</h1>
                     </a>
-                    <p class="mb-0">AI platform is designed to help all students, including those with disabilities, by
+                    <p class="mb-0">AI platform is designed to help all students, including specially abled persons, by
                         automating tasks and making education more accessible.</p>
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
@@ -337,16 +354,17 @@
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
                     <h5 class="text-white mb-4">Popular Link</h5>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Services</a>
+                    <a class="btn btn-link" href="/index">Home</a>
+                    <a class="btn btn-link" href="/about">About Us</a>
+                    <a class="btn btn-link" href="/contact">Contact Us</a>
+             
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
                     <h5 class="text-white mb-4">Our Services</h5>
-                    <a class="btn btn-link" href="">Sign Language to Text Conversion</a>
-                    <a class="btn btn-link" href="">Handwritten Equation Solver</a>
-                    <a class="btn btn-link" href="">Text Summarization</a>
-                    <a class="btn btn-link" href="">Text Extraction</a>
+                    <a class="btn btn-link" href="/signlang">Sign Language to Text Conversion</a>
+                    <a class="btn btn-link" href="/equation">Handwritten Equation Solver</a>
+                    <a class="btn btn-link" href="/textext">Text Summarization</a>
+                    <a class="btn btn-link" href="/textsum">Text Extraction</a>
                 </div>
             </div>
         </div>
@@ -355,7 +373,6 @@
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                         &copy; <a class="border-bottom" href="#">EduConnect.AI</a>, All Right Reserved.
-
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                         <div class="footer-menu">
