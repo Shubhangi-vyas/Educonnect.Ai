@@ -48,7 +48,7 @@
     <div class="container-fluid sticky-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark p-0">
-                <a href="/" class="navbar-brand">
+                <a href="/index" class="navbar-brand">
                     <h1 class="text-white">EduConnect<span class="text-dark">.</span>AI</h1>
                 </a>
                 <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
@@ -57,10 +57,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="/" class="nav-item nav-link active">Home</a>
+                        <a href="/index" class="nav-item nav-link active">Home</a>
                         <a href="/about" class="nav-item nav-link">About</a>
-                        <!-- <a href="service.html" class="nav-item nav-link">Services</a>
-                        <a href="project.html" class="nav-item nav-link">Projects</a> -->
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                             <div class="dropdown-menu bg-light mt-2">
@@ -71,9 +69,20 @@
                             </div>
                         </div>
                         <a href="/contact" class="nav-item nav-link">Contact</a>
+                        <div class="nav-item dropdown username" >
+                            {% if session['username'] %}
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-user"></i>
+                                Welcome, {{ session['username'] }}
+                            </a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="/logout" class="dropdown-item">Logout</a>
+                            </div>
+                            {% else %}
+                            <a href="/login" class="nav-link">Please log in</a>
+                            {% endif %}
+                        </div>
                     </div>
-                    <butaton type="button" class="btn text-white p-0 d-none d-lg-block" data-bs-toggle="modal"
-                        data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+    
                 </div>
             </nav>
         </div>
@@ -87,13 +96,6 @@
             <div class="row g-5 pt-5">
                 <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
                     <h1 class="display-4 text-white mb-4 animated slideInRight">Text Summarization</h1>
-                    <!-- <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center justify-content-lg-start mb-0">
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Features</li>
-                        </ol>
-                    </nav> -->
                 </div>
                 <div class="col-lg-6 align-self-end text-center text-lg-end">
                     <img class="img-fluid" src="https://png.pngtree.com/png-vector/20240320/ourmid/pngtree-curious-robot-reading-book-png-image_12181635.png" alt="">
@@ -206,15 +208,6 @@
     </div>
 </div>
 
-<!-- Newsletter End -->
-
-<!-- Add the following JavaScript -->
-
-<!-- Newsletter End -->
-
-
-
-
  <!-- Footer Start -->
  <div class="container-fluid bg-dark text-white-50 footer pt-5">
     <div class="container py-5">
@@ -223,7 +216,7 @@
                 <a href="index.html" class="d-inline-block mb-3">
                     <h1 class="text-white">EduConnect<span class="text-primary">.</span>AI</h1>
                 </a>
-                <p class="mb-0">AI platform is designed to help all students, including those with disabilities, by
+                <p class="mb-0">AI platform is designed to help all students, including specially abled persons, by
                     automating tasks and making education more accessible.</p>
             </div>
             <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
@@ -237,16 +230,17 @@
             </div>
             <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
                 <h5 class="text-white mb-4">Popular Link</h5>
-                <a class="btn btn-link" href="">About Us</a>
-                <a class="btn btn-link" href="">Contact Us</a>
-                <a class="btn btn-link" href="">Services</a>
+                <a class="btn btn-link" href="/index">Home</a>
+                <a class="btn btn-link" href="/about">About Us</a>
+                <a class="btn btn-link" href="/contact">Contact Us</a>
+         
             </div>
             <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
                 <h5 class="text-white mb-4">Our Services</h5>
-                <a class="btn btn-link" href="">Sign Language to Text Conversion</a>
-                <a class="btn btn-link" href="">Handwritten Equation Solver</a>
-                <a class="btn btn-link" href="">Text Summarization</a>
-                <a class="btn btn-link" href="">Text Extraction</a>
+                <a class="btn btn-link" href="/signlang">Sign Language to Text Conversion</a>
+                <a class="btn btn-link" href="/equation">Handwritten Equation Solver</a>
+                <a class="btn btn-link" href="/textext">Text Summarization</a>
+                <a class="btn btn-link" href="/textsum">Text Extraction</a>
             </div>
         </div>
     </div>
