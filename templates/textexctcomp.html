@@ -5,7 +5,7 @@
 
 
     <meta charset="utf-8">
-    <title>AI.Tech - Artificial Intelligence HTML Template</title>
+    <title>Educonnect.AI</title>
 
     <!-- Favicon -->
     <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="icon">
@@ -24,12 +24,12 @@
     <!-- Libraries Stylesheet -->
     <link href="{{ url_for('static', filename='lib/animate/animate.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
-
-
-
+    
+    
+    
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/cmp.css') }}" rel="stylesheet">
     <!-- Template Stylesheet -->
 </head>
@@ -49,7 +49,7 @@
     <div class="container-fluid sticky-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark p-0">
-                <a href="/" class="navbar-brand">
+                <a href="/index" class="navbar-brand">
                     <h1 class="text-white">EduConnect<span class="text-dark">.</span>AI</h1>
                 </a>
                 <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
@@ -58,10 +58,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="/" class="nav-item nav-link active">Home</a>
+                        <a href="/index" class="nav-item nav-link active">Home</a>
                         <a href="/about" class="nav-item nav-link">About</a>
-                        <!-- <a href="service.html" class="nav-item nav-link">Services</a>
-                        <a href="project.html" class="nav-item nav-link">Projects</a> -->
+                       
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                             <div class="dropdown-menu bg-light mt-2">
@@ -72,9 +71,20 @@
                             </div>
                         </div>
                         <a href="/contact" class="nav-item nav-link">Contact</a>
+                        <div class="nav-item dropdown username" >
+                            {% if session['username'] %}
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-user"></i>
+                                Welcome, {{ session['username'] }}
+                            </a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="/logout" class="dropdown-item">Logout</a>
+                            </div>
+                            {% else %}
+                            <a href="/login" class="nav-link">Please log in</a>
+                            {% endif %}
+                        </div>
                     </div>
-                    <butaton type="button" class="btn text-white p-0 d-none d-lg-block" data-bs-toggle="modal"
-                        data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+                  
                 </div>
             </nav>
         </div>
@@ -87,17 +97,10 @@
         <div class="container pt-5">
             <div class="row g-5 pt-5">
                 <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
-                    <h1 class="display-4 text-white mb-4 animated slideInRight">Computarized Text Extraction</h1>
-                    <!-- <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center justify-content-lg-start mb-0">
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">FAQs</li>
-                        </ol>
-                    </nav> -->
+                    <h1 class="display-4 text-white mb-4 animated slideInRight">Computerized Text Extraction</h1>
                 </div>
                 <div class="col-lg-6 align-self-end text-center text-lg-end">
-                    <img class="img-fluid" src="{{ url_for('static', filename='img/99.png') }}" alt="">
+                    <img class="img-fluid" src="{{ url_for('static', filename='img/cmpr.png') }}" alt="" style="max-width: 600px; ">
                 </div>
             </div>
         </div>
@@ -130,40 +133,12 @@
         <div class="container pt-5">
             <div class="row g-5">
                 <div class="col-lg-6 align-self-center mb-md-5 pb-md-5 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="btn btn-sm border rounded-pill text-white px-3 mb-3">About equation solver </div>
-                    <h1 class="text-white mb-4"> Transforming Handwritten Equations into Digital Solutions</h1>
-                    <p class="text-light mb-4">A handwritten equation solver is a sophisticated AI-based system designed
-                        to interpret and solve mathematical equations written by hand. This technology combines several
-                        advanced components to transform handwritten input into actionable digital information.
-                        Transforming Handwritten Equations into Digital Solutions"</p>
-                    <!-- <div class="d-flex align-items-center text-white mb-3">
-                    <div class="btn-sm-square bg-white text-primary rounded-circle me-3">
-                        <i class="fa fa-check"></i>
-                    </div>
-                    <span>Diam dolor diam ipsum et tempor sit</span>
-                </div>
-                <div class="d-flex align-items-center text-white mb-3">
-                    <div class="btn-sm-square bg-white text-primary rounded-circle me-3">
-                        <i class="fa fa-check"></i>
-                    </div>
-                    <span>Diam dolor diam ipsum et tempor sit</span>
-                </div>
-                <div class="d-flex align-items-center text-white mb-3">
-                    <div class="btn-sm-square bg-white text-primary rounded-circle me-3">
-                        <i class="fa fa-check"></i>
-                    </div>
-                    <span>Diam dolor diam ipsum et tempor sit</span>
-                </div> -->
+                    <div class="btn btn-sm border rounded-pill text-white px-3 mb-3">About </div>
+                    <h1 class="text-white mb-4"> Transforming Computerized text into Editable Format</h1>
+                    <p class="text-light mb-4">A computerized text extraction system is an advanced AI-driven technology designed to interpret and digitize printed text. Using sophisticated algorithms, this system converts images of printed text into editable digital formats, making the content easily accessible and usable. </p>
+                   
                     <div class="row g-4 pt-3">
-                        <!-- <div class="col-sm-6">
-                        <div class="d-flex rounded p-3" style="background: rgba(256, 256, 256, 0.1);">
-                            <i class="fa fa-home fa-3x text-white"></i>
-                            <div class="ms-3">
-                                <h2 class="text-white mb-0" data-toggle="counter-up">9999</h2>
-                                <p class="text-white mb-0">Happy Clients</p>
-                            </div>
-                        </div>
-                    </div> -->
+                        
                         <div class="col-sm-6">
                             <div class="d-flex rounded p-3">
                             </div>
@@ -171,11 +146,11 @@
                     </div>
                 </div>
                 <div class="col-lg-6 align-self-end text-center text-md-end wow fadeIn" data-wow-delay="0.5s">
-                    <!-- <img class="img-fluid" src="{{ url_for('static', filename='img/gif.gif') }}" alt="" style="width: 100%; max-width: 500px;"> -->
+                    
                     <img class="img-fluid"
-                        src="https://mymathsclub.com/wp-content/uploads/2024/02/9671faf9-7a99-4fc9-a77f-693d80e311e2-1024x675.webp"
+                        src="https://etimg.etb2bimg.com/photo/106669815.cms"
                         alt=""
-                        style="width: 100%; max-width: 700px; height: 500px; object-fit: cover; margin-bottom: 60px;">
+                        style=" width: 800px; height: 500px; object-fit: cover; margin-bottom: 60px;">
 
                 </div>
             </div>
@@ -219,7 +194,7 @@
 
 
                     <!-- Box 2: Extracted Text -->
-                    <div class="col-md-6 col-sm-12" ">
+                    <div class="col-md-6 col-sm-12" >
                         <div class="serviceBox blue " style="margin-left: 20px;" >
                             <h3 class="title">Extracted Text</h3>
                             <div id="extractedText" class="description">
@@ -249,7 +224,7 @@
                     <a href="index.html" class="d-inline-block mb-3">
                         <h1 class="text-white">EduConnect<span class="text-primary">.</span>AI</h1>
                     </a>
-                    <p class="mb-0">AI platform is designed to help all students, including those with disabilities, by
+                    <p class="mb-0">AI platform is designed to help all students, including specially abled persons, by
                         automating tasks and making education more accessible.</p>
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
@@ -263,16 +238,17 @@
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
                     <h5 class="text-white mb-4">Popular Link</h5>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Services</a>
+                    <a class="btn btn-link" href="/index">Home</a>
+                    <a class="btn btn-link" href="/about">About Us</a>
+                    <a class="btn btn-link" href="/contact">Contact Us</a>
+             
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
                     <h5 class="text-white mb-4">Our Services</h5>
-                    <a class="btn btn-link" href="">Sign Language to Text Conversion</a>
-                    <a class="btn btn-link" href="">Handwritten Equation Solver</a>
-                    <a class="btn btn-link" href="">Text Summarization</a>
-                    <a class="btn btn-link" href="">Text Extraction</a>
+                    <a class="btn btn-link" href="/signlang">Sign Language to Text Conversion</a>
+                    <a class="btn btn-link" href="/equation">Handwritten Equation Solver</a>
+                    <a class="btn btn-link" href="/textext">Text Summarization</a>
+                    <a class="btn btn-link" href="/textsum">Text Extraction</a>
                 </div>
             </div>
         </div>
@@ -298,7 +274,8 @@
 
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
 
 
 
