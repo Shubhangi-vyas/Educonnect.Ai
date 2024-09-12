@@ -49,7 +49,7 @@
     <div class="container-fluid sticky-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark p-0">
-                <a href="/" class="navbar-brand">
+                <a href="/index" class="navbar-brand">
                     <h1 class="text-white">EduConnect<span class="text-dark">.</span>AI</h1>
                 </a>
                 <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
@@ -58,7 +58,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="/" class="nav-item nav-link active">Home</a>
+                        <a href="/index" class="nav-item nav-link active">Home</a>
                         <a href="/about" class="nav-item nav-link">About</a>
                         <!-- <a href="service.html" class="nav-item nav-link">Services</a>
                         <a href="project.html" class="nav-item nav-link">Projects</a> -->
@@ -71,10 +71,21 @@
                                 <a href="/textsum" class="dropdown-item">Text Summarization</a>
                             </div>
                         </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="/contact" class="nav-item nav-link">Contact</a>
+                        <div class="nav-item dropdown username" >
+                            {% if session['username'] %}
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-user"></i>
+                                Welcome, {{ session['username'] }}
+                            </a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="/logout" class="dropdown-item">Logout</a>
+                            </div>
+                            {% else %}
+                            <a href="/login" class="nav-link">Please log in</a>
+                            {% endif %}
+                        </div>
                     </div>
-                    <butaton type="button" class="btn text-white p-0 d-none d-lg-block" data-bs-toggle="modal"
-                        data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+
                 </div>
             </nav>
         </div>
@@ -128,24 +139,24 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-7">
-                    <p class="text-center mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done.
-                        <form action="{{ url_for('contact') }}" method="POST">
+                    <p class="text-center mb-4">We’d love to hear from you! Whether you have questions, feedback, or need assistance, feel free to reach out. Our team is here to help and will get back to you as soon as possible.
+                        <form action="/contact" method="post">
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" name="name" required class="form-control" id="name" placeholder="Your Name">
+                                        <input type="text" name="name" required class="form-control" id="name" placeholder="Your Name" required>
                                         <label for="name">Your Name</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email">
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
                                         <label for="email">Your Email</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
                                         <label for="subject">Subject</label>
                                     </div>
                                 </div>
@@ -178,15 +189,11 @@
 
                 </div>
                 <div class="col-md-7 py-5 newsletter-text wow fadeIn" data-wow-delay="0.5s">
-                    <div class="btn btn-sm border rounded-pill text-white px-3 mb-3">Newsletter</div>
-                    <h1 class="text-white mb-4">Let's subscribe the newsletter</h1>
-                    <div class="position-relative w-100 mt-3 mb-2">
-                        <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text"
-                            placeholder="Enter Your Email" style="height: 48px;">
-                        <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i
-                                class="fa fa-paper-plane text-primary fs-4"></i></button>
+                    <h1 class="text-white mb-4">Please Fill form!<span><i class="fa fa-paper-plane" style="margin-left: 10px;"></i></span></h1>
+                    <div class=" mt-3 mb-2" style="color: white; display: flex;">
+                        <p>For immediate assistance, you can also reach us directly at <b>Sobhitv5@gmail.com</b>.Our customer service team is available for helping you
+                        Thank you for taking the time to contact us. We value your feedback and look forward to helping you!</p>
                     </div>
-                    <small class="text-white-50">Diam sed sed dolor stet amet eirmod</small>
                 </div>
             </div>
         </div>
@@ -201,7 +208,7 @@
                 <a href="index.html" class="d-inline-block mb-3">
                     <h1 class="text-white">EduConnect<span class="text-primary">.</span>AI</h1>
                 </a>
-                <p class="mb-0">AI platform is designed to help all students, including those with disabilities, by
+                <p class="mb-0">AI platform is designed to help all students, including specially abled persons, by
                     automating tasks and making education more accessible.</p>
             </div>
             <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
@@ -215,16 +222,17 @@
             </div>
             <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
                 <h5 class="text-white mb-4">Popular Link</h5>
-                <a class="btn btn-link" href="">About Us</a>
-                <a class="btn btn-link" href="">Contact Us</a>
-                <a class="btn btn-link" href="">Services</a>
+                <a class="btn btn-link" href="/index">Home</a>
+                <a class="btn btn-link" href="/about">About Us</a>
+                <a class="btn btn-link" href="/contact">Contact Us</a>
+         
             </div>
             <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
                 <h5 class="text-white mb-4">Our Services</h5>
-                <a class="btn btn-link" href="">Sign Language to Text Conversion</a>
-                <a class="btn btn-link" href="">Handwritten Equation Solver</a>
-                <a class="btn btn-link" href="">Text Summarization</a>
-                <a class="btn btn-link" href="">Text Extraction</a>
+                <a class="btn btn-link" href="/signlang">Sign Language to Text Conversion</a>
+                <a class="btn btn-link" href="/equation">Handwritten Equation Solver</a>
+                <a class="btn btn-link" href="/textext">Text Summarization</a>
+                <a class="btn btn-link" href="/textsum">Text Extraction</a>
             </div>
         </div>
     </div>
